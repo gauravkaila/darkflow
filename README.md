@@ -105,6 +105,28 @@ JSON output:
 
 ### Training new model
 
+***-------------------------------------------------------------------------------------------------------------------***
+
+To train a model from a pre-defined checkpoint, 
+
+# 1. Prepare the data
+
+/data/JpegImages
+/data/Annotations
+
+Annotations have to be in the Pascal Voc format
+
+# 2. Download the pre-trained weights 
+
+wget http://pjreddie.com/media/files/yolo.weights
+
+/bin/yolo.weights
+
+# 3. Train the model
+
+/flow --model cfg/yolo-voc.cfg --load bin/yolo.weights --dataset '{DIR}/VOCdevkit/VOC2012/JPEGImages/' --annotation '{DIR}/VOCdevkit/VOC2012/Annotations/' --train
+
+***-------------------------------------------------------------------------------------------------------------------***
 Training is simple as you only have to add option `--train` like below:
 
 ```bash
